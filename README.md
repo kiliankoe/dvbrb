@@ -1,6 +1,6 @@
 # DVB
 
-[![Gem](https://img.shields.io/gem/v/dvb.svg?style=flat-square)](https://rubygems.org/gems/dvb)[![Travis](https://img.shields.io/travis/kiliankoe/dvbrb.svg?style=flat-square)](https://travis-ci.org/kiliankoe/dvbrb/builds)[![GitHub issues](https://img.shields.io/github/issues/kiliankoe/dvbrb.svg?style=flat-square)](https://github.com/kiliankoe/dvbrb/issues)[![Gemnasium](https://img.shields.io/gemnasium/kiliankoe/dvbrb.svg?style=flat-square)](https://gemnasium.com/github.com/kiliankoe/dvbrb)
+[![Gem](https://img.shields.io/gem/v/dvb.svg?style=flat-square)](https://rubygems.org/gems/dvb) [![Travis](https://img.shields.io/travis/kiliankoe/dvbrb.svg?style=flat-square)](https://travis-ci.org/kiliankoe/dvbrb/builds) [![GitHub issues](https://img.shields.io/github/issues/kiliankoe/dvbrb.svg?style=flat-square)](https://github.com/kiliankoe/dvbrb/issues) [![Gemnasium](https://img.shields.io/gemnasium/kiliankoe/dvbrb.svg?style=flat-square)](https://gemnasium.com/github.com/kiliankoe/dvbrb)
 
 This is an unofficial gem giving you a few options to query Dresden's public transport system for current bus- and tramstop data.
 
