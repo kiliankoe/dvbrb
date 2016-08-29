@@ -1,5 +1,7 @@
 # DVB
 
+[![Gem](https://img.shields.io/gem/v/dvb.svg)](https://rubygems.org/gems/dvb)
+
 This is an unofficial gem giving you a few options to query Dresden's public transport system for current bus- and tramstop data.
 
 Similar libs also exist for [Node](https://github.com/kiliankoe/dvbjs), [Python](https://github.com/kiliankoe/dvbpy) and [Swift](https://github.com/kiliankoe/DVB) 😊
