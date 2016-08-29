@@ -11,20 +11,20 @@ module DVB
         vz: offset,
         lim: lim
       }}
-    departures = JSON.parse(response.to_str).map { |e| Departure.new(e) }
+    JSON.parse(response.to_str).map { |e| Departure.new(e) }
   end
 
   class Departure
-    attr_reader :line, :direction, :relativeTime
+    attr_reader :line, :direction, :relative_time
 
     def initialize(data)
       @line = data[0]
       @direction = data[1]
-      @relativeTime = data[2].to_i
+      @relative_time = data[2].to_i
     end
 
     def time
-      Time.now + @relativeTime * 60
+      Time.now + @relative_time * 60
     end
   end
 
