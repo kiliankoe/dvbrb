@@ -1,8 +1,8 @@
-# Dvb
+# DVB
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dvb`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is an unofficial gem giving you a few options to query Dresden's public transport system for current bus- and tramstop data.
 
-TODO: Delete this and the text above, and describe your gem
+Similar libs also exist for [Node](https://github.com/kiliankoe/dvbjs), [Python](https://github.com/kiliankoe/dvbpy) and [Swift](https://github.com/kiliankoe/DVB) 😊
 
 ## Installation
 
@@ -19,23 +19,24 @@ And then execute:
 Or install it yourself as:
 
     $ gem install dvb
-
 ## Usage
 
-TODO: Write usage instructions here
+Calling the following will return a list of `DVB::Departure` objects encapsulating information about upcoming departures at the given stop.
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+DVB::monitor('helmholtzstrasse')
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dvb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kiliankoe/dvbrb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+
+## Why?
+
+At this point I consider writing wrappers for the DVB/VVO APIs as somewhat of an extensive hello-world exercise for myself. I'm trying to get back into Ruby and realized I've never published a gem, so here goes nothing 😄
