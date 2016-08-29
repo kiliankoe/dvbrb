@@ -1,0 +1,3 @@
+module Dvb
+  VERSION = "0.1.0"
+end
