@@ -23,15 +23,36 @@ Or install it yourself as:
     $ gem install dvb
 ## Usage
 
-Calling the following will return a list of `DVB::Departure` objects encapsulating information about upcoming departures at the given stop.
-
 ```ruby
-DVB::monitor('helmholtzstrasse')
+require 'dvb'
+
+# Calling the following will return a list of DVB::Departure objects
+# encapsulating information about upcoming departures at the given stop. 
+# I've also gone ahead and filtered out departures that do not have "3" 
+# as their line identifier.
+
+deps = DVB::monitor('albertplatz').select { |d| d.line == '3' }
+puts deps
+# 3 Coschütz @ 2016-08-29 17:57:58 +0200
+# 3 Wilder Mann @ 2016-08-29 18:03:58 +0200
+# 3 Coschütz @ 2016-08-29 18:07:58 +0200
+# ...
+
+# The second optional parameter sets a time offset into the future, 
+# default is 0. The third optional parameter limits the amount of results, 
+# default is as many as possible.
+
+deps = DVB::monitor('albertplatz', 10, 2)
+puts deps
+# 8 Südvorstadt @ 2016-08-29 18:30:00 +0200
+# 6 Wölfnitz @ 2016-08-29 18:31:00 +0200
 ```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kiliankoe/dvbrb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Please don't hesitate [opening an issue](https://github.com/kiliankoe/dvbrb/issues/new) should any questions/bugs/whatever arise.
+
+Pull requests are of course just as welcome. If you're interested in adding additional functionality, why not open an issue beforehand so we can discuss how to integrate it best 😊
 
 
 ## License
