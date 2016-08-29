@@ -12,7 +12,6 @@ module DVB
 
     if /^E(\d+)/.match(mode)
       match = /^E(\d+)/.match(mode)
-      # binding.pry
       return TransportMode::TRAM if match[1].to_i <= 59
       return TransportMode::CITYBUS
     end
