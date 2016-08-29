@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Dvb do
+describe DVB do
   it 'has a version number' do
-    expect(Dvb::VERSION).not_to be nil
+    expect(DVB::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  it 'can monitor stops' do
+    expect(DVB::monitor('albertplatz')).not_to be nil
   end
 end

@@ -1,5 +1,6 @@
 require "dvb/version"
+require "dvb/monitor"
 
-module Dvb
-  # Your code goes here...
+module DVB
+
 end
