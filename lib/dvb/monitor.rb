@@ -13,16 +13,20 @@ module DVB
         vz: offset,
         lim: lim
       }}
-    JSON.parse(response.to_str).map { |e| Departure.new(e) }
+    JSON.parse(response.to_str).map { |e| Departure.with_arr(e) }
   end
 
   class Departure
     attr_reader :line, :direction, :relative_time
 
-    def initialize(data)
-      @line = data[0]
-      @direction = data[1]
-      @relative_time = data[2].to_i
+    def self.with_arr(data)
+      Departure.new(data[0], data[1], data[2].to_i)
+    end
+
+    def initialize(line, direction, relative_time)
+      @line = line
+      @direction = direction
+      @relative_time = relative_time
     end
 
     def time
@@ -31,6 +35,10 @@ module DVB
 
     def mode
       DVB::parse_mode(@line)
+    end
+
+    def to_s
+      "#{@line} #{direction} @ #{time}"
     end
   end
 
