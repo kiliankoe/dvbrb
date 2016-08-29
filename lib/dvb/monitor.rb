@@ -1,6 +1,8 @@
 require 'rest-client'
 require 'json'
 
+require_relative 'utils'
+
 module DVB
 
   def self.monitor(stop, offset = 0, lim = 0, city = 'Dresden')
@@ -25,6 +27,10 @@ module DVB
 
     def time
       Time.now + @relative_time * 60
+    end
+
+    def mode
+      DVB::parse_mode(@line)
     end
   end
 
