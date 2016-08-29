@@ -1,4 +1,10 @@
 require 'spec_helper'
+require 'vcr'
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/vcr'
+  config.hook_into :webmock
+end
 
 describe DVB do
   it 'has a version number' do
@@ -7,21 +13,29 @@ describe DVB do
 end
 
 describe 'Monitor "Postplatz"' do
-  departures = DVB::monitor('postplatz')
 
-  it 'returns data' do
-    expect(departures).not_to be nil
-    expect(departures.count).not_to eq(0)
+  VCR.use_cassette 'monitor_postplatz' do
+    departures = DVB::monitor('postplatz')
+
+    it 'returns data' do
+      expect(departures).not_to be nil
+      expect(departures.count).not_to eq(0)
+    end
   end
+
 end
 
 describe 'Monitor "XXX"' do
-  departures = DVB::monitor('XXX')
 
-  it 'returns empty list of departures' do
-    expect(departures).not_to be nil
-    expect(departures.count).to eq(0)
+  VCR.use_cassette 'monitor_XXX' do
+    departures = DVB::monitor('XXX')
+
+    it 'returns empty list of departures' do
+      expect(departures).not_to be nil
+      expect(departures.count).to eq(0)
+    end
   end
+
 end
 
 describe DVB::Departure do

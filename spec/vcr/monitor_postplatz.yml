@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://widgets.vvo-online.de/abfahrtsmonitor/Abfahrten.do?hst=postplatz&lim=0&ort=Dresden&vz=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.3.1p112
+      Host:
+      - widgets.vvo-online.de
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=60, must-revalidate
+      Date:
+      - Mon, 29 Aug 2016 16:51:24 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Expires:
+      - Mon, 29 Aug 2016 16:52:24 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+        AWz2zkrayZ4hgKrIHz9+fB8/Ir73vY929z4affS6rYu8yZf06+5H3x9976OH
+        9NvLupqXRUO/7dnPfq9sVrQ/oF/ko1367Xm+bvMr+XSfPz2g317/o3/f7LKq
+        mzabtfTnff7i4T79+rJq2lWZcftP+eNdgPmpZjrP63YpgOQLoPZ7lXmx/AF9
+        mU3n2ssD/hKwnmfrSX6RNehCPmVYT/7Rv29eZmv67YA/RNNX2Syf5Osy/W7O
+        zeUbHr0/gt0d/hwff17Vk+BDbuyTSmiFHh2t9MOAWN5nXkMhIYj17bws85oR
+        3r3Hnz6gX7+bF+9mVX1Ov+4KYZl+J1XT5JNsPcvpD/0CQDoU3xWSU9c+PXaF
+        sPgwGPUQNeRzfOxRw30YmZzdh/wtMKUBLCf/6N9BXdMfe0IDDOxlvlzWxXRO
+        v+qnaO3P5Z7QhpEPGcN8Q7/6iO4J2XgA3gztCXnu0a/fLcpZXqdfZEvvC8yI
+        nSX9DKDdLO0pwfCpI6N+ite9psKB6IzmaDr/R/8+ASsfY4q8ed4TIoIcRCYz
+        z/opRuHorR8CQGeO94TWzBa+WOnn+LjL9veE4PzKiyInklxldTvHDN2T8QMl
+        b4b0U6AUmW39lunuz4f5PCTbPSEbfxpOq34D2oUTdU+oB3R9BtGPuV9vvu/J
+        wDEvdlr1M/QZYKgfA4KjtfmUfnUTu680o1+9D4URgbE/2/oxJsub7X1hT3za
+        mcJ9IRTPhz+F+0IQRs9HWz/Hxw7rfaEGPozM0b6OCYNyc3FfdBrwDyl+X0bL
+        zcNJ0m+AKvGsE23vc3+O7gspAMcfwX1vxEQ5p8vMF/SrnTz9jMngzfN9VW70
+        q5uR+0IavO99KKQB5b35uH/wET4Fq9NIjPTdF0HjzgKM5XPA6MzefSEthtIV
+        tE+FKIDlJupT4QN8GJmoT3Ww9KvfvfkYn7v5+1RIwGT0GUc/78+rfsFgwnn9
+        VGgESP786cegp52PT2XATCJvPh4IMwG0I/2DGAUeCFMAqNdSPgTOxBFWlvRj
+        0N2buwdCQ3zamY0HQigmSUe36Vf4hibcse4D4Rkej0/zBzTl3/9/ABMHeSUe
+        CQAA
+    http_version: 
+  recorded_at: Mon, 29 Aug 2016 16:51:24 GMT
+recorded_with: VCR 3.0.3
