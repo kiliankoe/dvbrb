@@ -71,6 +71,13 @@ module DVB
     }
   end
 
+  def self.distance_between(lat1, lng1, lat2, lng2)
+    point1 = Geokit::LatLng.new(lat1, lng1)
+    point2 = Geokit::LatLng.new(lat2, lng2)
+
+    point1.distance_to(point2) * 1000
+  end
+
 end
 
 class String

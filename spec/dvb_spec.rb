@@ -72,6 +72,12 @@ describe 'Find "XXX"' do
   end
 end
 
+describe 'Find near Albertplatz' do
+  it 'should find 3 results in a radius of 500 meters' do
+    expect(DVB::find_near(51.063313, 13.746748, 500).count).to eq(3)
+  end
+end
+
 describe DVB::Stop do
   helmholtzstrasse = nil
 
@@ -181,5 +187,15 @@ describe 'Parse Transport Mode' do
 
   it 'should fail with `null`' do
     expect(DVB::parse_mode('Lorem Ipsum')).to eq(nil)
+  end
+end
+
+describe 'Distance between' do
+  Struct.new('Coord', :lat, :lng)
+  alb = Struct::Coord.new(51.0663139, 13.7550046)
+  pir = Struct::Coord.new(51.0469462, 13.7478377)
+
+  it 'Albertplatz and Pirnaischer Platz should be correct' do
+    expect(DVB::distance_between(alb.lat, alb.lng, pir.lat, pir.lng)).to be_within(0.1).of(2213)
   end
 end

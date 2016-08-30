@@ -6,13 +6,18 @@ module DVB
       search_str.downcase!
       (stop.name.downcase.include?(search_str) || stop.search_str.downcase.include?(search_str)) && stop.region == region
     end
-    # Would theoretically make sense, if priority values weren't so weird...
+    # The following would theoretically make sense, if priority values weren't so weird...
     # all_stops.sort_by { |s| s.priority }.reverse
   end
 
-  # def self.find_near(lat, lng, radius = 500)
-  #   [lat, lng]
-  # end
+  def self.find_near(lat, lng, radius = 500)
+    # Unfortunately some stops (exactly 100 of 4480) don't have location data associated with them
+    # Filtering those out here, as they're not relevant for location-based searching
+    all_stops = load_local_stops.reject { |s| s.lat.nil? || s.lng.nil? }
+    all_stops.select do |stop|
+      DVB::distance_between(stop.lat, stop.lng, lat, lng) <= radius
+    end
+  end
 
   def self.load_local_stops
     path = File.expand_path(File.dirname(__FILE__)) + '/VVOStops.json'
