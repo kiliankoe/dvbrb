@@ -1,3 +1,6 @@
+require 'geokit'
+Geokit::default_units = :kms
+
 module DVB
 
   def self.parse_mode(mode)
