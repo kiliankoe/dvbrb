@@ -1,11 +1,6 @@
 require 'spec_helper'
 require 'vcr'
 
-VCR.configure do |config|
-  config.cassette_library_dir = 'spec/vcr'
-  config.hook_into :webmock
-end
-
 describe DVB do
   it 'has a version number' do
     expect(DVB::VERSION).not_to be nil
