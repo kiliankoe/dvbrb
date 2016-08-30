@@ -100,7 +100,7 @@ describe DVB::Stop do
   end
 
   it 'returns the correct coordinates' do
-    expect(helmholtzstrasse.coords).to eq({:latitude=>51.025549, :longitute=>13.725456})
+    expect(helmholtzstrasse.coords).to eq({ latitude: 51.025549, longitute: 13.725456 })
   end
 end
 
