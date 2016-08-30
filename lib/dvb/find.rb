@@ -34,7 +34,9 @@ module DVB
     end
 
     def self.with_str_hash(h)
-      Stop.new(h['id'], h['latitude'].to_f, h['longitude'].to_f, h['name'], h['priority'].to_i, h['region'], h['searchstring'], h['tarif_zones'])
+      lat = h['latitude'] == '999.999999' ? nil : h['latitude'].to_f
+      lng = h['longitude'] == '999.999999' ? nil : h['longitude'].to_f
+      Stop.new(h['id'], lat, lng, h['name'], h['priority'].to_i, h['region'], h['searchstring'], h['tarif_zones'])
     end
 
     def coords
