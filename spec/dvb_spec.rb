@@ -53,6 +53,57 @@ describe DVB::Departure do
   end
 end
 
+describe 'Find "Albertplatz"' do
+  it 'should find the correct stop' do
+    expect(DVB::find('Albertplatz').count).to eq(1)
+    expect(DVB::find('Albertplatz').first.name).to eq('Albertplatz')
+  end
+end
+
+describe 'Find "Helm"' do
+  it 'should find several stops' do
+    expect(DVB::find('Helm').count).to be >= 1
+  end
+end
+
+describe 'Find "XXX"' do
+  it 'should find empty list of stops' do
+    expect(DVB::find('XXX').count).to eq(0)
+  end
+end
+
+describe DVB::Stop do
+  helmholtzstrasse = nil
+
+  it 'can be initialized with string hash' do
+    # noinspection RubyStringKeysInHashInspection
+    helmholtz_data = {
+      'id' => '100320',
+      'latitude' => '51.025549',
+      'longitude' => '13.725456',
+      'name' => 'Helmholtzstraße',
+      'priority' => '4',
+      'region' => 'Dresden',
+      'searchstring' => 'helmholtzstrasse dresden',
+      'tarif_zones' => '100'
+    }
+    helmholtzstrasse = DVB::Stop.with_str_hash(helmholtz_data)
+    expect(helmholtzstrasse).to_not be_nil
+    expect(helmholtzstrasse.id).to eq('100320')
+    expect(helmholtzstrasse.lat).to eq(51.025549)
+    expect(helmholtzstrasse.lng).to eq(13.725456)
+    expect(helmholtzstrasse.name).to eq('Helmholtzstraße')
+    expect(helmholtzstrasse.priority).to eq(4)
+    expect(helmholtzstrasse.region).to eq('Dresden')
+    expect(helmholtzstrasse.search_str).to eq('helmholtzstrasse dresden')
+    expect(helmholtzstrasse.tarif_zones).to eq('100')
+  end
+
+  it 'returns the correct coordinates' do
+    expect(helmholtzstrasse.coords).to eq({:latitude=>51.025549, :longitute=>13.725456})
+  end
+end
+
 describe 'Parse Transport Mode' do
   it 'should identify correct values as `Straßenbahn`' do
     expect(DVB::parse_mode('3')).to eq(DVB::TransportMode::TRAM)
