@@ -21,9 +21,10 @@ And then execute:
 Or install it yourself as:
 
     $ gem install dvb
-## Usage
+## Quick Start
 
 ```ruby
+# Don't forget to require the gem
 require 'dvb'
 
 # Calling the following will return a list of DVB::Departure objects
@@ -46,6 +47,26 @@ deps = DVB::monitor('albertplatz', 10, 2)
 puts deps
 # 8 Südvorstadt @ 2016-08-29 18:30:00 +0200
 # 6 Wölfnitz @ 2016-08-29 18:31:00 +0200
+
+```
+
+```ruby
+# You can also use dvb to find stops using two different methods. Either
+# look them up by name or via coordinates. DVB::Stop objects include an id, 
+# latitude, longitude, name, region and tarif_zones amongst other info.
+
+# The second optional param is the region. It defaults to Dresden.
+stops = DVB::find('helmh', 'Dresden')
+puts stops
+# Helmholtzstraße, Dresden
+
+# The third optional param here is the searchradius in meters. 
+# It defaults to 500.
+stops = DVB::find_near(51.063313, 13.746748, 500)
+puts stops
+# Bautzner Straße / Rothenburger Straße, Dresden
+# Albertplatz, Dresden
+# Bahnhof Neustadt, Dresden
 ```
 
 ## Contributing
