@@ -24,7 +24,7 @@ Or install it yourself as:
 ## Quick Start
 
 ```ruby
-# Don't forget to require the gem
+# Don't forget to require dvb
 require 'dvb'
 
 # Calling the following will return a list of DVB::Departure objects
@@ -32,7 +32,7 @@ require 'dvb'
 # I've also gone ahead and filtered out departures that do not have "3" 
 # as their line identifier.
 
-deps = DVB::monitor('albertplatz').select { |d| d.line == '3' }
+deps = DVB.monitor('albertplatz').select { |d| d.line == '3' }
 puts deps
 # 3 Coschütz @ 2016-08-29 17:57:58 +0200
 # 3 Wilder Mann @ 2016-08-29 18:03:58 +0200
@@ -43,7 +43,7 @@ puts deps
 # default is 0. The third optional parameter limits the amount of results, 
 # default is as many as possible.
 
-deps = DVB::monitor('albertplatz', 10, 2)
+deps = DVB.monitor('albertplatz', 10, 2)
 puts deps
 # 8 Südvorstadt @ 2016-08-29 18:30:00 +0200
 # 6 Wölfnitz @ 2016-08-29 18:31:00 +0200
@@ -56,13 +56,13 @@ puts deps
 # latitude, longitude, name, region and tarif_zones amongst other info.
 
 # The second optional param is the region. It defaults to Dresden.
-stops = DVB::find('helmh', 'Dresden')
+stops = DVB.find('helmh', 'Dresden')
 puts stops
 # Helmholtzstraße, Dresden
 
 # The third optional param here is the searchradius in meters. 
 # It defaults to 500.
-stops = DVB::find_near(51.063313, 13.746748, 500)
+stops = DVB.find_near(51.063313, 13.746748, 500)
 puts stops
 # Bautzner Straße / Rothenburger Straße, Dresden
 # Albertplatz, Dresden
